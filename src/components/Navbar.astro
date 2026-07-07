@@ -1,0 +1,35 @@
+---
+const links = [
+  { label: "Green Bean", href: "#green-bean" },
+  { label: "Roasted Bean", href: "#roasted-bean" },
+  { label: "Private Label", href: "#private-label" },
+  { label: "Quality", href: "#quality" },
+  { label: "Partnership", href: "#partnership" },
+];
+---
+
+<header class="sticky top-0 z-50 h-16 border-b border-hairline bg-canvas/95 backdrop-blur">
+  <div class="mx-auto flex h-full max-w-[1280px] items-center justify-between px-6">
+    <a href="/" class="text-lg font-bold tracking-tight">Kaldera Roastery</a>
+
+    <nav class="hidden items-center gap-8 md:flex">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm font-medium text-muted transition-colors hover:text-ink"
+          >
+            {link.label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <a
+      href="#sample-request"
+      class="rounded-md bg-ember px-5 py-2.5 text-sm font-semibold text-on-ember transition-colors hover:bg-ember-active"
+    >
+      Request Sample
+    </a>
+  </div>
+</header>

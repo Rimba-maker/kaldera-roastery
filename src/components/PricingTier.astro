@@ -1,0 +1,35 @@
+---
+const tiers = [
+  { volume: "5–20 kg", diskon: "Harga normal", support: "WA support" },
+  { volume: "20–50 kg", diskon: "8% off", support: "Prioritas roasting slot" },
+  { volume: "50–100 kg", diskon: "15% off", support: "Dedicated PIC" },
+  { volume: "100 kg+", diskon: "Custom nego", support: "Kontrak tahunan, harga terkunci" },
+];
+---
+
+<section class="mx-auto max-w-[1280px] px-6 py-24">
+  <h2 class="text-3xl font-bold tracking-tight md:text-4xl">Semakin Rutin, Semakin Hemat.</h2>
+
+  <div class="mt-8 overflow-x-auto rounded-lg border border-hairline">
+    <table class="w-full text-left text-sm">
+      <thead>
+        <tr class="border-b border-hairline bg-surface-card">
+          <th class="px-6 py-4 font-semibold">Volume/Bulan</th>
+          <th class="px-6 py-4 font-semibold">Diskon</th>
+          <th class="px-6 py-4 font-semibold">Support</th>
+        </tr>
+      </thead>
+      <tbody>
+        {
+          tiers.map((tier) => (
+            <tr class="border-b border-hairline last:border-0 hover:bg-surface-card">
+              <td class="px-6 py-4 font-medium">{tier.volume}</td>
+              <td class="px-6 py-4 text-ember font-semibold">{tier.diskon}</td>
+              <td class="px-6 py-4 text-body">{tier.support}</td>
+            </tr>
+          ))
+        }
+      </tbody>
+    </table>
+  </div>
+</section>

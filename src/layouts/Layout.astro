@@ -1,0 +1,73 @@
+---
+import "../styles/global.css";
+import { origins } from "../data/origins";
+import Navbar from "../components/Navbar.astro";
+import Footer from "../components/Footer.astro";
+
+const title = "Kaldera Roastery — Wholesale Green Bean & Roasted Coffee Indonesia";
+const description =
+  "Supplier green bean dan roasted bean untuk cafe & roaster. 15+ origin terverifikasi, cupping score terdokumentasi, private label tersedia. Request sample gratis.";
+const ogImage =
+  "https://images.unsplash.com/photo-1570936449881-998bb07d3dfc?q=80&w=1200&auto=format&fit=crop";
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      name: "Kaldera Roastery",
+      description,
+      slogan: "Dari kaldera, ke cangkirmu.",
+    },
+    {
+      "@type": "LocalBusiness",
+      name: "Kaldera Roastery",
+      description: "Roastery & wholesale green bean supplier untuk cafe, roaster, dan hotel di seluruh Indonesia.",
+    },
+    ...origins.map((origin) => ({
+      "@type": "Product",
+      name: origin.name,
+      description: origin.notes,
+      offers: {
+        "@type": "Offer",
+        priceCurrency: "IDR",
+        price: origin.price.replace(/[^0-9]/g, ""),
+      },
+    })),
+  ],
+};
+---
+
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta
+      name="keywords"
+      content="wholesale green bean, supplier kopi cafe, roasted bean grosir, private label kopi, green coffee bean indonesia, supplier biji kopi"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="bg-canvas text-ink font-sans">
+    <Navbar />
+    <slot />
+    <Footer />
+  </body>
+</html>

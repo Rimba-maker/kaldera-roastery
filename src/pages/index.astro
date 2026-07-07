@@ -1,0 +1,26 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/react/Hero";
+import GreenBeanCatalog from "../components/react/GreenBeanCatalog";
+import RoastedBean from "../components/react/RoastedBean";
+import RoastingCapability from "../components/react/RoastingCapability";
+import PrivateLabel from "../components/react/PrivateLabel";
+import QualityControl from "../components/QualityControl.astro";
+import CaraKerjaSama from "../components/CaraKerjaSama.astro";
+import PricingTier from "../components/PricingTier.astro";
+import Testimonial from "../components/react/Testimonial";
+import SampleRequestForm from "../components/react/SampleRequestForm";
+---
+
+<Layout>
+  <Hero client:load />
+  <GreenBeanCatalog client:visible />
+  <RoastedBean client:visible />
+  <RoastingCapability client:visible />
+  <PrivateLabel client:visible />
+  <QualityControl />
+  <CaraKerjaSama />
+  <PricingTier />
+  <Testimonial client:visible />
+  <SampleRequestForm client:idle />
+</Layout>

@@ -1,0 +1,45 @@
+---
+const steps = [
+  {
+    icon: "📝",
+    title: "Request Sample",
+    description: "Isi form, pilih origin/roasted bean yang mau dicoba (gratis untuk sample 250g–500g)",
+  },
+  {
+    icon: "☕",
+    title: "Cupping & Evaluasi",
+    description: "Kamu tes sendiri atau kami bantu cupping session bareng",
+  },
+  {
+    icon: "📦",
+    title: "First Order",
+    description: "Mulai dari minimum order, kami proses & kirim",
+  },
+  {
+    icon: "🔄",
+    title: "Recurring Supply",
+    description: "Set jadwal pengiriman rutin (mingguan/bulanan) sesuai kebutuhan cafe-mu",
+  },
+];
+---
+
+<section id="partnership" class="mx-auto max-w-[1280px] px-6 py-24">
+  <h2 class="text-3xl font-bold tracking-tight md:text-4xl">
+    Mulai Kerja Sama Dalam 4 Langkah.
+  </h2>
+
+  <ol class="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+    {
+      steps.map((step, i) => (
+        <li class="rounded-lg border border-hairline bg-surface-card p-6">
+          <span class="text-xs font-semibold uppercase tracking-wide text-ember">
+            Step {i + 1}
+          </span>
+          <div class="mt-2 text-2xl">{step.icon}</div>
+          <h3 class="mt-2 font-semibold">{step.title}</h3>
+          <p class="mt-1 text-sm text-body">{step.description}</p>
+        </li>
+      ))
+    }
+  </ol>
+</section>
